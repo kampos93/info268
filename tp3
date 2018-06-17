@@ -1,0 +1,33 @@
+*Parte I: Desde su notebook Python (o desde la CLI de Mongo en un terminal, o la GUI Mongo Compass), realizar las consultas siguientes:*
+1) Mostrar los documentos de su colección mostrando solamente el campo "location". 
+
+db.tweets.find({},{location:1})
+
+2) Mostrar los tweets que contienen la palabra "UACh".
+
+db.tweets.createIndex({text: "text"})
+db.tweets.find({$text:{$search:"UACH"}}).pretty()
+
+
+3) Contar el número de tweets por username.
+
+
+
+*Parte II: El SGBD Mongo permite realizar consultas geospaciales (https://docs.mongodb.com/manual/geospatial-queries/)*
+1) En una sola consulta, actualizar los documentos tweets que hablan de "valdiviacl", agregando un campo "city" con el valor siguiente:
+{
+type: "Point",
+coordinates: [-73.245209,-39.819588]
+}
+
+
+2) Recopilar algunos tweets hablando de "Puerto Montt" y agregar un campo "city" con las coordinades de Puerto Montt
+
+
+3) Utilizar un operator de Mongo para recopilar el documento lo más cercano del punto: -73.131920, -40.574505
+
+
+*Parte III (Inicio del TP3: Descubrimiento de ElasticSearch*
+1) ¿Cuáles son los puntos similares y diferentes entre Mongo y ElasticSearch? (referencias utiles: https://db-engines.com/en/ranking, https://www.elastic.co/products/elasticsearch)
+
+2) Instalar ElasticSearch
